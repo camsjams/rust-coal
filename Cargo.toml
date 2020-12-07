@@ -1,0 +1,13 @@
+[package]
+name = "coal"
+version = "0.1.0"
+description = "A static HTML development tool, built with Rust"
+authors = ["Cameron Manavian <cameron.manavian@gmail.com>"]
+edition = "2018"
+repository = "https://github.com/camsjams/rust-coal"
+homepage = "https://github.com/camsjams/rust-coal"
+license = "MIT"
+keywords = ["html", "css", "static", "browser"]
+categories = ["html", "web-programming"]
+
+[dependencies]
