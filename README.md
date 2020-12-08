@@ -1,4 +1,4 @@
-# rust-coal
+# rust-coal 🚂
 A static HTML development tool, built with Rust
 
 ## crate
@@ -9,7 +9,7 @@ Those that want to generate a basic static HTML site, with perhaps 1-5 pages, an
 
 If you need programmatic components, then it would be better to utilize a more hands on system like GatsbyJS, Nozzle, or a Content Management System (CMS) such as WordPress.
 
-The static HTML output can be easily served on GitHub pages, Firebase Hosting, and a number of other places. Also see about Docker support below.
+Just like in a typical JAMStack solution, the static HTML output can be easily served on GitHub pages, Firebase Hosting, and a number of other places. Also see about Docker support below.
 
 ## Platforms / Technologies
 * [rust](https://www.rust-lang.org/)
@@ -21,8 +21,9 @@ The static HTML output can be easily served on GitHub pages, Firebase Hosting, a
 - Zero config 📄
 - Convention Over Configuration 💜
 - Batteries Included 🔋
-- HTML  🌠
+- Standard HTML 🌠
 - Asset minification 🗜️
+- Leverages Locomotive Emoji 🚂
 - Docker build script 🐋 (coming soon)
 
 ## Future Features
@@ -39,7 +40,7 @@ v0.1.0 - see Cargo.toml file
 # How To Use Coal
 
 ## Local Development: Serve HTML
-This runs a local development server using the rust crate actix as a server, on the desired port (defaults to `8041`).
+This runs a local development server using the Rust crate actix as a server, on the desired port (defaults to `8041`).
 >      $ coal serve {source_folder} [{port}=.8041]
 
 Examples
@@ -72,11 +73,14 @@ components/
     components-here.html
 pages/
     pages-here.html
-layout.html
+layout-here.html
 ```
+See [examples](examples) for a bunch of common solutions.
 
 ### Layout
 A layout file is required at the root of your project, this is used to create the basic HTML template to place your page content.
+
+The name of the layour file becomes the name of the tag that you'd use within your page template files, ie `layout.html` is used as `<layout>`.
 
 There are a number of special tags that can be used in this file:
 * {{version}} - the location of the version string, generated at build time via an argument (defaults to ISO-8061 string)

@@ -11,3 +11,8 @@ keywords = ["html", "css", "static", "browser"]
 categories = ["html", "web-programming"]
 
 [dependencies]
+actix = "0.10"
+actix-web = "3"
+clap = "2.33.0"
+pest = "2.1.3"
+pest_derive = "2.1.0"
