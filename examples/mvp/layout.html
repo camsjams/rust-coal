@@ -11,11 +11,16 @@
     <style>
         nav {
             background-color: #eee;
+            overflow: auto;
         }
 
         nav a {
-            display: inline-block;
+            float: left;
             padding: 1em;
+        }
+
+        nav::after {
+            clear: both;
         }
 
         nav a.icon {
@@ -51,7 +56,10 @@
         <nav>
             <a class="icon" href="/">
                 <img src="/assets/images/favicon.png" />
-            </a><a class="index" href="/">Home</a><a class="about" href="/about/">About</a>
+            </a>
+            <a class="index" href="/">Home</a>
+            <a class="about" href="/about/">About</a>
+            <a class="portfolio" href="/portfolio/">Portfolio (With Layout Override)</a>
         </nav>
     </header>
     <main>
