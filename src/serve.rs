@@ -1,22 +1,22 @@
 use std::io::{Error};
 
-use actix_web::{App, HttpRequest, HttpResponse, HttpServer, Responder, http::StatusCode, web};
+use actix_web::{App, HttpRequest, HttpResponse, HttpServer, Responder, web};
 
 use crate::coal;
 struct AppState {
     source: String,
+    version: String,
 }
 
 async fn render(req: HttpRequest, data: web::Data<AppState>) -> impl Responder {
-    HttpResponse::Ok()
-    .status(StatusCode::OK)
-    .content_type("text/html; charset=utf-8")
-    .body(
-        coal::find_page(
-            &data.source, 
-        req.match_info().get("page").unwrap_or("index")
-        ).unwrap()
-    )
+    match coal::find_page(&data.source,req.match_info().get("page").unwrap_or("index"), &data.version) {
+        Ok(response) => HttpResponse::Ok()
+            .content_type("text/html; charset=utf-8")
+            .body(response),
+        _ => HttpResponse::NotFound()
+            .content_type("text/html; charset=utf-8")
+            .body("Not Found")
+    }
 }
 
 #[actix_web::main]
@@ -27,9 +27,10 @@ pub async fn start(source: String, port: String) -> Result<(), Error> {
         App::new()
             .data(AppState {
                 source: source.clone(),
+                version: env!("CARGO_PKG_VERSION").to_string()
             })
             .route("/", web::get().to(render))
-            .route("/{page}", web::get().to(render))
+            .route("/{page}/", web::get().to(render))
     });
     server.bind(format!("127.0.0.1:{}", port))?.run().await?;
 

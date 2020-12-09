@@ -1,6 +1,8 @@
 use std::io::{Error, ErrorKind};
 extern crate clap;
+extern crate grass;
 extern crate pest;
+extern crate html_minifier;
 #[macro_use]
 extern crate pest_derive;
 

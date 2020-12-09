@@ -22,9 +22,13 @@ Just like in a typical JAMStack solution, the static HTML output can be easily s
 - Convention Over Configuration 💜
 - Batteries Included 🔋
 - Standard HTML 🌠
-- Asset minification 🗜️
+- HTML,CSS, JS minification 🗜️
+- Asset Bundling 📦
+- Local Dev Server ⚒️
+- Basic Nested CSS ~SCSS :nail_care: [Using Grass](https://crates.io/crates/grass)
+- Smart Reload During Local Dev ✨
 - Leverages Locomotive Emoji 🚂
-- Docker build script 🐋 (coming soon)
+- Coming Soon: Docker build script 🐋
 
 ## Future Features
 For feature requests, please create an issue.
@@ -80,7 +84,7 @@ See [examples](examples) for a bunch of common solutions.
 ### Layout
 A layout file is required at the root of your project, this is used to create the basic HTML template to place your page content.
 
-The name of the layour file becomes the name of the tag that you'd use within your page template files, ie `layout.html` is used as `<layout>`.
+The name of the layout file becomes the name of the tag that you'd use within your page template files, ie `layout.html` is used as `<layout>`.
 
 There are a number of special tags that can be used in this file:
 * {{version}} - the location of the version string, generated at build time via an argument (defaults to ISO-8061 string)

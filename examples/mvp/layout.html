@@ -7,18 +7,45 @@
     <meta name=version content="{{version}}">
     {{meta}}
     <title>{{title}}</title>
+    <style>
+        nav {
+            background-color: #eee;
+        }
+
+        nav a {
+            display: inline-block;
+            margin-right: 1em;
+            padding: 1em;
+        }
+
+        body.page-index header a.index,
+        body.page-about header a.about {
+            background-color: #ddd;
+        }
+
+        header nav a:hover {
+            background-color: #ccc;
+        }
+    </style>
     {{style}}
 </head>
 
-<body>
+<body class="page-{{page}}">
     <header>
-        Welcome to the header of the MVP
+        <nav>
+            <a class="index" href="/">Home</a>
+            <a class="about" href="/about/">About</a>
+        </nav>
     </header>
     <main>
         {{content}}
     </main>
     <footer>
-        Welcome to the footer of the MVP
+        <a class="index" href="/">Home</a>
+        <a class="about" href="/about/">About</a>
+        <p>
+            Copyright &copy; 2020
+        </p>
     </footer>
     {{script}}
 </body>
