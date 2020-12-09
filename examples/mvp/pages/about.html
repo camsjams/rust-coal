@@ -7,6 +7,7 @@
     <button id="cta">
         Learn More
     </button>
+    <div id="target"></div>
     <div>
         <h2>Feeling crabby?</h2>
         <h3>Look No Further!</h3>
@@ -31,10 +32,11 @@
         }
     </style>
     <script type="text/javascript">
+        const target = document.getElementById('target');
         document.getElementById('cta').addEventListener('click', () => {
             const div = document.createElement('div');
             div.innerHTML = 'You clicked on the button!';
-            document.body.appendChild(div);
+            target.appendChild(div);
         });
     </script>
 </layout>
