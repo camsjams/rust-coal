@@ -7,11 +7,6 @@ struct AppState {
     source: String,
     version: String,
 }
-/*
- _ => HttpResponse::NotFound()
-            .content_type("text/html; charset=utf-8")
-            .body("Not Found")
-            */
 
 async fn render(req: HttpRequest, data: web::Data<AppState>) -> impl Responder {
     match coal::find_page(&data.source,req.match_info().get("page").unwrap_or("index"), &data.version) {
