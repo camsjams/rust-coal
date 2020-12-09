@@ -28,10 +28,13 @@ Just like in a typical JAMStack solution, the static HTML output can be easily s
 - Basic Nested CSS ~SCSS :nail_care: [Using Grass](https://crates.io/crates/grass)
 - Smart Reload During Local Dev ✨
 - Leverages Locomotive Emoji 🚂
-- Coming Soon: Docker build script 🐋
 
 ## Future Features
 For feature requests, please create an issue.
+
+Some ideas:
+- Docker build script 🐋
+- Custom reusable components (Like React or Vue) ⚛️
 
 ## Showcase
 Sites using coal to generate simple static HTML websites:
