@@ -7,9 +7,9 @@ https://crates.io/crates/coal
 ## Who is this for?
 Those that want to generate a basic static HTML site, with perhaps 1-5 pages, and do not want to maintain layouts, navigation elements, and footers across multiple files.
 
-If you need programmatic components, then it would be better to utilize a more hands on system like GatsbyJS, Nozzle, or a Content Management System (CMS) such as WordPress.
+If you need programmatic components, then it would be better to utilize a more hands on system like [GatsbyJS](https://www.gatsbyjs.com/), [React Static](https://github.com/react-static/react-static), or a Content Management System (CMS) such as [WordPress](https://wordpress.org/).
 
-Just like in a typical JAMStack solution, the static HTML output can be easily served on GitHub pages, Firebase Hosting, and a number of other places. Also see about Docker support below.
+Just like in a typical [Jamstack](https://jamstack.org/) solution, the static HTML output can be easily served on [GitHub Pages](https://pages.github.com/), [Firebase Hosting](https://firebase.google.com/docs/hosting), and a number of other places. Also see about Docker support below.
 
 ## Platforms / Technologies
 * [rust](https://www.rust-lang.org/)
@@ -30,7 +30,7 @@ Just like in a typical JAMStack solution, the static HTML output can be easily s
 - Leverages Locomotive Emoji 🚂
 
 ## Future Features
-For feature requests, please create an issue.
+For feature requests, please see [this issue](https://github.com/camsjams/rust-coal/issues/1).
 
 Some ideas:
 - Docker build script 🐋
