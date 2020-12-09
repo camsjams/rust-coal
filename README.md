@@ -5,7 +5,7 @@ A static HTML development tool, built with Rust
 https://crates.io/crates/coal
 
 ## Who is this for?
-Those that want to generate a basic static HTML site, with perhaps 1-5 pages, and do not want to maintain layouts, navigation elements, and footers across multiple files.
+Those that want to generate a basic static HTML site, with perhaps 1-10 pages, and do not want to maintain layouts, navigation elements, and footers across multiple files.
 
 If you need programmatic components, then it would be better to utilize a more hands-on system like [GatsbyJS](https://www.gatsbyjs.com/), [React Static](https://github.com/react-static/react-static), or a Content Management System (CMS) such as [WordPress](https://wordpress.org/).
 
@@ -124,7 +124,11 @@ The discovered <style> or <script> tags will be minified (but not uglified).
 
 Within the <style> tag, you can utilize SCSS features such as nesting.
 
-**Side Note:**
+#### 404 Page
+If using a system like Firebase Hosting, the creation of a custom 404 page is ideal. To do so in coal, just add a file within pages called `404.html`. This file will also be utilized in local development.
+
+
+##### Side Note:
 Thanks to the robustness of modern browsers, you can load this page file directly in the browser to quickly iterate on the content. The browser will automatically fill in necessary tags like `html`, `head`, and `body` **See above to serve a compiled page using coal during local dev.**
 
 ## Getting Coal
