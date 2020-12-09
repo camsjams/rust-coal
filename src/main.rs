@@ -1,4 +1,5 @@
 use std::io::{Error, ErrorKind};
+extern crate chrono;
 extern crate clap;
 extern crate grass;
 extern crate pest;
@@ -21,7 +22,8 @@ fn main() -> std::io::Result<()>{
     } else  if let Some(ref matches) = matches.subcommand_matches("build") {
         build::start( 
             matches.value_of("source").unwrap().to_string(), 
-            matches.value_of("dest").unwrap().to_string()
+            matches.value_of("dest").unwrap().to_string(),
+            matches.value_of("version").unwrap().to_string(),
         )
     } else {
         Err(Error::new(ErrorKind::Other, "Invalid Mode"))

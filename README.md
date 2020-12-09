@@ -83,6 +83,8 @@ FLAGS:
 ARGS:
     <source>    the folder to use in Coal [default: src]
     <dest>      the folder to compiled public assets to [default: dist]
+    <version>   the build to insert into html [default: current coal version + formatted date]
+
 ```
 
 Examples

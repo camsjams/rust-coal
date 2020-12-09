@@ -38,5 +38,11 @@ pub fn build<'a, 'b>() -> App<'a, 'b> {
                         .default_value("dist")
                         .index(2)
                 )
+                .arg(
+                    Arg::with_name("version")
+                        .help("the build to insert into html")
+                        .default_value(env!("CARGO_PKG_VERSION"))
+                        .index(3)
+                )
         )
 }
