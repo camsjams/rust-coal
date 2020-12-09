@@ -1,5 +1,5 @@
 use std::io::{Error};
-
+use actix_files::Files;
 use actix_web::{App, HttpRequest, HttpResponse, HttpServer, Responder, web};
 
 use crate::coal;
@@ -31,6 +31,12 @@ pub async fn start(source: String, port: String) -> Result<(), Error> {
             })
             .route("/", web::get().to(render))
             .route("/{page}/", web::get().to(render))
+            .service(
+                Files::new(
+                    "/", 
+                    format!("{}", source.clone())
+                )
+            )
     });
     server.bind(format!("127.0.0.1:{}", port))?.run().await?;
 
