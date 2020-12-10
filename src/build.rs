@@ -31,7 +31,7 @@ pub fn start(source: String, destination: String, version:String, root: String) 
                 )
                 .replace(
                     "href=\"/", 
-                    &format!("\"{}/", root)
+                    &format!("href=\"{}/", root)
                 );
                 if page == "404" || page == "index" {
                     fs::create_dir_all(format!("{}", destination))?;
