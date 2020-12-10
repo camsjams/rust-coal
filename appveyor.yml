@@ -7,8 +7,6 @@ environment:
 
     CRATE_NAME: coal
 
-  # TODO These are all the build jobs. Adjust as necessary. Comment out what you
-  # don't need
   matrix:
     # MinGW
     # - TARGET: i686-pc-windows-gnu
