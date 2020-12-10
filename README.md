@@ -1,7 +1,7 @@
 # rust-coal 🚂
 A static HTML development tool, built with Rust
 
-![Image of Coal Mine Cart](examples/docs/assets/images/favicon.png)
+![Image of Coal Mine Cart](examples/docs-source/assets/images/favicon.png)
 
 ## Who is this for?
 Those that want to generate a basic static HTML site, with perhaps 1-10 pages, and do not want to maintain layouts, navigation elements, and footers across multiple files.
