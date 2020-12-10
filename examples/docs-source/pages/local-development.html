@@ -1,0 +1,44 @@
+<layout>
+    <title>Local Development | Coal Documentation</title>
+    <div class="text-center py-5 px-3 mb-4">
+        <h1>Local Development</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Local Development</li>
+            </ol>
+        </nav>
+        <p>
+            Coal has a local development server to help you test your project locally and handle serving of HTML, CSS,
+            JS, and images.
+        </p>
+    </div>
+
+    <h2>Running Local Dev Server</h2>
+    <h5>
+        Default Dev Server
+    </h5>
+    <p>By using the default serve mode, Coal will expect a folder called <code>./src</code> and run on port
+        <code>8041</code></p>
+    <pre>
+        coal serve
+    </pre>
+    <h5>
+        Custom Dev Server Source
+    </h5>
+    <p>To set the <strong>source</strong> folder of the project, provide it to <code>serve</code> as an argument.</p>
+    <pre>
+        coal serve --source my_source/
+        coal serve -s my_source/
+    </pre>
+    <h5>
+        Custom Dev Server Port
+    </h5>
+    <p>To set the <strong>port</strong> of the dev server, provide it to <code>serve</code> as an argument.</p>
+    <pre>
+        coal serve --port 1337
+        coal serve -p 1337
+    </pre>
+    <p>For more detailed information, see <a href="/cli/">CLI documentation</a>.</p>
+</layout>

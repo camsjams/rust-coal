@@ -1,0 +1,111 @@
+<layout>
+    <title>Using Pages | Coal Documentation</title>
+    <div class="text-center py-5 px-3 mb-4">
+        <h1>Using Pages</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Using Pages</li>
+            </ol>
+        </nav>
+        <p>
+            Pages are the partial templates used in Coal to customize content on a given url.
+        </p>
+    </div>
+    <h2>Pages Overview</h2>
+    <p>Be sure to review the <a href="/layouts/">Layouts documentation</a> to see folder structure before making a page.
+    </p>
+    <p>
+        Pages live within your source folder under <code>pages/</code>, and should be <code>dashed-lowercase.html</code>
+        files, which are used to create the final url of the page.
+    </p>
+    <p>
+        Declaring <code>meta</code> ,<code>title</code>, <code>style</code>, or <code>script</code> tags in this page
+        will pull in that data into the layout into the relevant location (see <a href="/layouts/">Layouts
+            documentation</a>).
+    </p>
+    <h5>
+        Title Discovery
+    </h5>
+    <p>
+        If no <code>title</code> tag is discovered within a Page, Coal will use the page's filename and uppercase
+        the first
+        letter. This means a Page template named <code>about.html</code> begets a title <code>About</code>.
+    </p>
+    <h5>
+        Minification
+    </h5>
+    <p>
+        The discovered <code>style</code> and <code>script</code> tags will be minified (but not uglified).
+    </p>
+    <h5>
+        SCSS
+    </h5>
+    <p>
+        Within the <code>style</code> tag, you can utilize SCSS features such as nesting. These will be compiled into
+        normalized CSS for local dev and build files.
+    </p>
+    <pre>
+        &lt;layout&gt;
+            &lt;style&gt;
+                button {
+                    background-color: greenyellow;
+        
+                    &:hover {
+                        background-color: lime;
+                    }
+        
+                    &:active {
+                        background-color: forestgreen;
+                    }
+                }
+            &lt;/style&gt;
+            &lt;h1&gt;Welcome to the About Page&lt;/h1&gt;
+        &lt;/layout&gt;
+        
+    </pre>
+    <h2>Sample Page</h2>
+    <p>
+        Here is a sample page file, <code>pages/about.html</code>:
+    </p>
+    <pre>
+        &lt;layout&gt;
+            &lt;title&gt;About Page Title Override&lt;/title&gt;
+            &lt;meta property="og:description" content="About Page OG description" /&gt;
+            &lt;h1&gt;Welcome to the about page&lt;/h1&gt;
+            &lt;p&gt;This is the about page&lt;/p&gt;
+            &lt;button id="cta"&gt;
+                Learn More
+            &lt;/button&gt;
+            &lt;div id="target"&gt;&lt;/div&gt;
+            &lt;style&gt;
+                p {
+                    color: red;
+                }
+            &lt;/style&gt;
+            &lt;script type="text/javascript"&gt;
+                const target = document.getElementById('target');
+                document.getElementById('cta').addEventListener('click', () =&gt; {
+                    const div = document.createElement('div');
+                    div.innerHTML = 'You clicked on the button!';
+                    target.appendChild(div);
+                });
+            &lt;/script&gt;
+        &lt;/layout&gt;
+    </pre>
+    <p>
+        See <a href="https://github.com/camsjams/rust-coal/tree/main/examples">examples</a> for more.
+    </p>
+    <h2>Index Page</h2>
+    <p>An index page is required for the root of your website. Add a
+        file within pages called <code>pages/index.html</code>.</p>
+    <h2>404 Page</h2>
+    <p>If using a system like Firebase Hosting, the creation of a custom 404 page is ideal. To do so in Coal, just add a
+        file within pages called <code>pages/404.html</code>. This file will also be utilized in <a
+            href="/local-development/">local development</a>.</p>
+    <h2>Tips and Tricks</h2>
+    <p>Coal expects valid HTML5 syntax, meaning tags must either be self closing <code>&lt;img /&gt;</code> or closed
+        properly <code>&lt;em&gt;Hello World!&lt;/em&gt;</code>.</p>
+
+</layout>

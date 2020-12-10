@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name=version content="1.0.0_2020-12-09T23:50:37.728270182+00:00">
+<link rel="icon" type="image/png" href="/rust-coal/assets/images/favicon.png"/>
+<title>Getting Started | Coal Documentation</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<style>body{padding-top:5rem;}h2{margin-top:3rem;}@media (min-width:767px){.github span{display:none;}.octocat{border:0;color:#f4f5f6;fill:#b1340b;height:3.5rem;position:fixed;right:0;top:0;width:3.5rem;z-index:2}.octocat:hover .octocat-arm{animation:octoanim .56s infinite;transform-origin:8rem 6.6rem}.octocat .octocat-arm,.octocat .octocat-body{fill:#f4f5f6}}@keyframes octoanim{0%,50%{transform:rotate(0)}25%,75%{transform:rotate(-25deg)}}</style>
+</head>
+<body class="page-getting-started">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class="container-fluid">
+<a class="navbar-brand" title="Coal Documentation Home" href="/">
+<img src="/rust-coal/assets/images/favicon.png" alt="Coal in a mine cart" width="30" height="24"/>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+<ul class="navbar-nav me-auto mb-2 mb-md-0">
+<li class="nav-item">
+<a class="nav-link" href="/getting-started/">Getting Started</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/cli/">CLI</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/layouts/">Layouts</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/pages/">Pages</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/rust-coal/assets/">Assets</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/local-development/">Development</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/building-for-production/">Production</a>
+</li>
+<li class="nav-item">
+<a class="nav-link github" href="https://github.com/camsjams/rust-coal" title="Coal source on Github" target="_blank">
+<span>GitHub</span>
+<svg class="octocat" viewBox="0 0 250 250">
+<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+<path class="octocat-arm" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2">
+</path>
+<path class="octocat-body" d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z">
+</path>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main class="container">
+<div class="text-center py-5 px-3 mb-4">
+<h1>Getting Started</h1>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Getting Started</li>
+</ol>
+</nav>
+<p>
+You have two options to run and use coal, by downloading an OS optimized release, or by building from
+source.
+</p>
+</div>
+<h2>
+Starting a Coal project
+</h2>
+<p>
+First, install or build Coal using the instructions below. Next, take a look at <a href="https://github.com/camsjams/rust-coal/tree/main/examples">examples</a> and read up on the <a href="/cli/">Command-line interface (CLI)</a>, <a href="/layouts/">Layouts</a>, <a href="/pages/">Pages</a>,
+and <a href="/layouts/">Assets</a>
+</p>
+<h2>Coal via release channel (recommended)</h2>
+<p>
+Find Coal for your OS on the <a href="https://github.com/camsjams/rust-coal/releases">releases page here</a>.
+</p>
+<p>Once installed using Operating System specific directions below, use Coal as normal, see <a href="/cli/">CLI</a>
+for more info.</p>
+<h6>Linux, Mac</h6>
+<p>Copy the binary into a directory of your choice, below we copy into <code>/usr/local/bin/</code>.</p>
+<pre>
+        sudo cp coal /usr/local/bin/coal
+    </pre>
+<h6>Windows</h6>
+<p>Copy the coal.exe into a folder that is already on the <code>PATH</code>, or add it to a new folder and register
+that new folder to your <code>PATH</code>.</p>
+<pre>
+        sudo cp coal /usr/local/bin/coal
+    </pre>
+<h2>Coal via source</h2>
+<h5>
+Prerequisites
+</h5>
+<p>
+You will need to have Rust 2018+ stable installed, we recommend <code>version 1.47.0</code> or higher, but it
+should work on any 2018+ version.
+</p>
+<h5>
+Obtain Source
+</h5>
+<p>The source code for Coal can be downloaded from the <a href="https://github.com/camsjams/rust-coal">git repo on
+GitHub</a>.</p>
+<pre>
+        $ git clone git@github.com:camsjams/rust-coal.git
+    </pre>
+<h5>
+Running From Source
+</h5>
+<p>You can run Coal directly from the project by using <code>cargo run [MODE] [ARGS]</code>. See <a href="/cli/">CLI</a> for more info.
+</p>
+<pre>
+        # Use Coal's local development server
+        $ cargo run serve my_source
+        # Build your Coal project into static HTML for deployment
+        $ cargo run build my_source my_destination
+    </pre>
+<h5>
+Running From Local Binary
+</h5>
+<p>You can compile Coal into a binary for use on your machine.</p>
+<pre>
+        $ cargo build --release
+    </pre>
+<p>A binary for Coal will be built in <code>target/release/coal</code>.</p>
+<p>Copy this binary into a directory of your choice, below we copy into <code>/usr/local/bin/</code>.</p>
+<pre>
+        sudo cp target/release/coal /usr/local/bin/coal
+    </pre>
+<p>Use Coal as normal, see <a href="/cli/">CLI</a> for more info.</p>
+<pre>
+        # Use Coal's local development server
+        $ coal serve my_source
+        # Build your Coal project into static HTML for deployment
+        $ coal build my_source my_destination
+    </pre>
+</main>
+<footer class="container mt-5">
+<p class="text-center">
+<a href="https://github.com/camsjams/rust-coal" target="_blank">
+Coal on GitHub
+</a>
+</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

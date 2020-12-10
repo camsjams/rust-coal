@@ -1,0 +1,105 @@
+<layout>
+    <title>Using Layouts | Coal Documentation</title>
+    <div class="text-center py-5 px-3 mb-4">
+        <h1>Using Layouts</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Using Layouts</li>
+            </ol>
+        </nav>
+        <p>
+            Layouts are the base templates used in Coal to reduce copy and pasting of elements like navigation or
+            footers
+        </p>
+    </div>
+    <h2>Folder Structure</h2>
+    <p>
+        Coal is opinionated about your folder structure
+    </p>
+    <p>
+        Your HTML project should look like this
+    </p>
+    <pre>
+        assets/
+            [optional additional CSS/JS/image assets here]
+        pages/
+            pages-here.html
+        layouts-here.html
+    </pre>
+    <p>
+        See <a href="https://github.com/camsjams/rust-coal/tree/main/examples">examples</a> for a bunch of common
+        solutions,
+        including this documentation website.
+    </p>
+    <h2>Layouts Overview</h2>
+    <p>
+        A layout file is required at the root of your project, this is used to create the basic HTML template to place
+        your page content.
+    </p>
+    <p>
+        The name of the layout file becomes the name of the tag that you'd use within your page template files, ie
+        <code>layout.html</code> is used as <code>&lt;layout&gt;</code>.
+    </p>
+    <p>
+        There are a number of special <a href="https://mustache.github.io/">Mustache</a>-inspired tags that can be used
+        in this file:
+    </p>
+    <ul>
+        <li><code>{{version}}</code> - the location of the version string, generated at build time via an argument
+            (defaults to
+            ISO-8061 string)</li>
+        <li><code>{{content}}</code> - the resolved content including any nested components</li>
+        <li><code>{{title}}</code> - A <code>&lt;title&gt;</code> tag collected from a page template (defaults to the
+            page file's
+            name uppercased,
+            ie about.html becomes "About")</li>
+        <li><code>{{meta}}</code> - any <code>&lt;meta&gt;</code> tags collected from a page template</li>
+        <li><code>{{style}}</code> - any <code>&lt;style&gt;</code>; tags collected from a page template</li>
+        <li><code>{&#123;script}}</code> - any <code>&lt;script&gt;</code> tags collected from a page template</li>
+        <li><code>{{page}}</code> - a lowercase string to denote current page, useful for adding to the body class to
+            mark active
+            states on navigation (see <a
+                href="https://github.com/camsjams/rust-coal/tree/main/examples/mvp/layout.html">examples/mvp/layout.html</a>)
+        </li>
+    </ul>
+    <h2>Sample Layout</h2>
+    <p>
+        Here is a sample layout file, placed inside <code>src/layout.html</code>:
+    </p>
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang=en&gt;
+        &lt;head&gt;
+            &lt;meta charset=utf-8&gt;
+            &lt;meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"&gt;
+            &lt;meta name=version content="{{version}}"&gt;
+            {{meta}}
+            &lt;title&gt;{{title}}&lt;/title&gt;
+            {{style}}
+        &lt;/head&gt;
+        &lt;body class="page-{{page}}"&gt;
+            &lt;header&gt;
+                Hi
+            &lt;/header&gt;
+            &lt;main&gt;
+                {{content}}
+            &lt;/main&gt;
+            {&#123;script}}
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+
+    <h3>Using a Layout in a Page</h3>
+    <p>Assuming a layout file exists at <code>src/layout.html</code>, you can use the tag <code>&lt;layout&gt;</code> to
+        designate usage of that particular layout. Also see the <a
+            href="https://github.com/camsjams/rust-coal/tree/main/examples/mvp/pages/portfolio.html">examples/mvp/pages/portfolio.html</a>
+        file for an example of using an alternate layout.</p>
+    <pre>
+        &lt;layout&gt;
+            &lt;h1&gt;Welcome to the About Page&lt;/h1&gt;
+        &lt;/layout&gt;
+    </pre>
+    <p>For more detailed information about Pages, see <a href="/pages/">Pages documentation</a>.</p>
+</layout>

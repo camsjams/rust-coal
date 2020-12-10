@@ -1,0 +1,29 @@
+<layout>
+    <title>Using Assets | Coal Documentation</title>
+    <div class="text-center py-5 px-3 mb-4">
+        <h1>Using Assets</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Using Assets</li>
+            </ol>
+        </nav>
+        <p>
+            Coal allows static files to be used.
+        </p>
+    </div>
+    <h2>Loading Static Assets In Coal</h2>
+    <p>
+        For local development and building projects, Coal supports static assets. Just create a folder within your
+        source called <code>assets</code> and reference files from it with a <code>/</code> prefix.
+    </p>
+    <p>Assuming we have a file called <code>favicon.png</code> inside <code>{src}/assets/images</code>, we can use it
+        like so:</p>
+    <pre>
+        &lt;link rel="icon" type="image/png" href="/assets/images/favicon.png" /&gt;
+    </pre>
+    <h2>Building Coal Projects With Assets</h2>
+    <p>The entire <code>assets</code> folder will be copied over into your compiled Coal project when running the <a
+            href="/building-for-production/">build process</a>.</p>
+</layout>

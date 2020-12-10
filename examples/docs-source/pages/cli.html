@@ -1,0 +1,74 @@
+<layout>
+    <title>CLI | Coal Documentation</title>
+    <div class="text-center py-5 px-3 mb-4">
+        <h1>CLI</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">CLI</li>
+            </ol>
+        </nav>
+        <p>
+            Coal exposes an easy-to-use API via its command-line interface.
+        </p>
+    </div>
+    <h2>CLI help</h2>
+    <p>
+        At any time you can see helpful Coal CLI info with the following commands:
+    </p>
+    <pre>
+        coal help
+        coal build -h, --help
+        coal serve -h, --help
+    </pre>
+
+    <h2>CLI Overview</h2>
+    <pre>
+        A static HTML development tool, built with Rust
+        USAGE:
+            coal [SUBCOMMAND]
+
+        FLAGS:
+            -h, --help       Prints help information
+            -V, --version    Prints version information
+
+        SUBCOMMANDS:
+            build    Build project for deployment
+            help     Prints this message or the help of the given subcommand(s)
+            serve    Serve project for local development
+    </pre>
+
+    <h2>Serve HTML</h2>
+    <pre>
+        Serve project for local development
+        USAGE:
+            coal serve [OPTIONS]
+
+        FLAGS:
+            -h, --help       Prints help information
+            -V, --version    Prints version information
+
+        OPTIONS:
+            -p, --port &lt;port&gt;        the port to run the dev server on [default: 8041]
+            -s, --source &lt;source&gt;    the folder to use in Coal [default: src]
+    </pre>
+
+    <h2>Build HTML</h2>
+    <pre>
+        Build project for deployment
+
+        USAGE:
+            coal build [OPTIONS]
+        
+        FLAGS:
+            -h, --help    Prints help information
+        
+        OPTIONS:
+            -d, --dest &lt;dest&gt;          the folder to compiled public assets to [default: dist]
+            -r, --root &lt;root&gt;          the folder root to insert before assets [default: ]
+            -s, --source &lt;source&gt;      the folder to use in Coal [default: src]
+            -v, --version &lt;version&gt;    the build to insert into html [default: 0.1.0]
+    </pre>
+
+</layout>

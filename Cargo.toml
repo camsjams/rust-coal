@@ -1,6 +1,6 @@
 [package]
 name = "coal"
-version = "0.1.0"
+version = "1.0.0"
 description = "A static HTML development tool, built with Rust"
 authors = ["Cameron Manavian <cameron.manavian@gmail.com>"]
 edition = "2018"
@@ -16,6 +16,7 @@ actix-files = "0.4.0"
 actix-web = "3"
 chrono = "0.4.19"
 clap = "2.33.0"
+fs_extra = "1.2.0"
 grass = "0.10.4"
 html-minifier = "3.0.7"
 pest = "2.1.3"

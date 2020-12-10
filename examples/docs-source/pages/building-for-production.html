@@ -1,0 +1,67 @@
+<layout>
+    <title>Building For Production | Coal Documentation</title>
+    <div class="text-center py-5 px-3 mb-4">
+        <h1>Building For Production</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Building For Production</li>
+            </ol>
+        </nav>
+        <p>
+            Coal can compile your project into a fully-constructed HTML folder, and copies your assets too.
+        </p>
+    </div>
+
+    <h2>Building Coal Project for Deployment</h2>
+    <h5>
+        Default Build
+    </h5>
+    <p>By using the default build mode, Coal will expect a folder called <code>./src</code>, compile to
+        <code>./dist</code>, and use a version build number <code>current coal version + ISO-8601 date</code>
+    </p>
+    <pre>
+        coal build
+    </pre>
+    <h5>
+        Custom Build Source
+    </h5>
+    <p>To set the <strong>source</strong> folder of the project, provide it to <code>build</code> as an argument.</p>
+    <pre>
+        coal build --source my_source/
+        coal build -s my_source/
+    </pre>
+    <h5>
+        Custom Build Destination
+    </h5>
+    <p>To set the <strong>destination</strong> folder of the build, provide it to <code>build</code> as an argument.</p>
+    <pre>
+        coal build --dest docs
+        coal build -d docs
+    </pre>
+    <h5>
+        Custom Build Version String
+    </h5>
+    <p>To set the <strong>version</strong> of the build, provide it to <code>build</code> as an argument.</p>
+    <pre>
+        coal build --version v1.1.1
+        coal build -v v1.1.1
+    </pre>
+    <h5>
+        Custom Root As Assets Prefix (GitHub Pages see here!)
+    </h5>
+    <p>To set the <strong>root</strong> of the assets path, provide it to <code>build</code> as an argument. Learn more
+        about <a href="/assets/">Assets here</a>.
+    </p>
+    <p>This is useful when deploying to GitHub Pages, as the default location is: <br />
+        <code>[GitHub username].github.io/[GitHub repository name]/</code><br />
+        Example:<br />
+        <code>https://camsjams.github.io/rust-coal/</code>
+    </p>
+    <pre>
+        coal build --root "/rust-coal"
+        coal build -r "/rust-coal"
+    </pre>
+    <p>For more detailed information, see <a href="/cli/">CLI documentation</a>.</p>
+</layout>

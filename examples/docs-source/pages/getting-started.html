@@ -1,0 +1,126 @@
+<layout>
+    <title>Getting Started | Coal Documentation</title>
+    <div class="text-center py-5 px-3 mb-4">
+        <h1>Getting Started</h1>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Getting Started</li>
+            </ol>
+        </nav>
+        <p>
+            You have two options to run and use coal, by downloading an OS optimized release, or by building from
+            source.
+        </p>
+    </div>
+    <h2>
+        Starting a Coal project
+    </h2>
+    <p>
+        First, install or build Coal using the instructions below. Next, take a look at <a
+            href="https://github.com/camsjams/rust-coal/tree/main/examples">examples</a> and read up on the <a
+            href="/cli/">Command-line interface (CLI)</a>, <a href="/layouts/">Layouts</a>, <a href="/pages/">Pages</a>,
+        and <a href="/layouts/">Assets</a>
+    </p>
+
+    <h2>Coal via release channel (recommended)</h2>
+    <p>
+        By downloading a release binary, you do not need Rust installed. Find Coal for your OS on the <a
+            href="https://github.com/camsjams/rust-coal/releases">releases page here</a>.
+    </p>
+    <p>Once installed using Operating System specific directions below, use Coal as normal, see <a href="/cli/">CLI</a>
+        for more info.</p>
+    <h6>Linux, Mac</h6>
+    <p>Copy the binary into a directory of your choice, below we copy into <code>/usr/local/bin/</code>.</p>
+    <pre>
+        sudo cp coal /usr/local/bin/coal
+    </pre>
+
+    <h6>Windows</h6>
+    <p>Copy the coal.exe into a folder that is already on the <code>PATH</code>, or add it to a new folder and register
+        that new folder to your <code>PATH</code>.</p>
+    <pre>
+        sudo cp coal /usr/local/bin/coal
+    </pre>
+
+    <h2>Coal via Cargo</h2>
+    <h5>
+        Prerequisites
+    </h5>
+    <p>
+        You will need to have Rust 2018+ stable installed, and Cargo (which is probably likely if you have Rust).
+    </p>
+    <h5>
+        Cargo Install
+    </h5>
+    <p>The crate for Coal can be installed via the Cargo interface, and will be installed to <code>~/.cargo/bin/</code>.
+        If you have Rust installed then this folder is already part of your <code>PATH</code>.
+    </p>
+    <pre>
+        $ cargo install coal
+    </pre>
+    <h5>
+        Updating From Cargo
+    </h5>
+    <p>Check your installed coal version like so:
+    </p>
+    <pre>
+        $ coal --version
+    </pre>
+    <p>You can update Coal to a new release with the <code>--force</code> flag.
+    </p>
+    <pre>
+        # check your coal version like so:
+        $ coal --version
+        $ cargo install coal --force
+    </pre>
+
+    <h2>Compile Coal from source</h2>
+    <h5>
+        Prerequisites
+    </h5>
+    <p>
+        You will need to have Rust 2018+ stable installed, we recommend <code>version 1.47.0</code> or higher, but it
+        should work on any 2018+ version.
+    </p>
+    <h5>
+        Obtain Source
+    </h5>
+    <p>The source code for Coal can be downloaded from the <a href="https://github.com/camsjams/rust-coal">git repo on
+            GitHub</a>.</p>
+    <pre>
+        $ git clone git@github.com:camsjams/rust-coal.git
+    </pre>
+    <h5>
+        Running From Source
+    </h5>
+    <p>You can run Coal directly from the project by using <code>cargo run [MODE] [ARGS]</code>. See <a
+            href="/cli/">CLI</a> for more info.
+    </p>
+    <pre>
+        # Use Coal's local development server
+        $ cargo run serve my_source
+        # Build your Coal project into static HTML for deployment
+        $ cargo run build my_source my_destination
+    </pre>
+    <h5>
+        Running From Local Binary
+    </h5>
+    <p>You can compile Coal into a binary for use on your machine.</p>
+    <pre>
+        $ cargo build --release
+    </pre>
+    <p>A binary for Coal will be built in <code>target/release/coal</code>.</p>
+    <p>Copy this binary into a directory of your choice, below we copy into <code>/usr/local/bin/</code>.</p>
+    <pre>
+        sudo cp target/release/coal /usr/local/bin/coal
+    </pre>
+    <p>Use Coal as normal, see <a href="/cli/">CLI</a> for more info.</p>
+    <pre>
+        # Use Coal's local development server
+        $ coal serve my_source
+        # Build your Coal project into static HTML for deployment
+        $ coal build my_source my_destination
+    </pre>
+</layout>
