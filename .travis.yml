@@ -1,0 +1,107 @@
+# Based on the "trust" template v0.1.2
+# https://github.com/japaric/trust/tree/v0.1.2
+
+dist: trusty
+language: rust
+services: docker
+sudo: required
+
+env:
+  global:
+    - CRATE_NAME=coal
+
+matrix:
+  # TODO These are all the build jobs. Adjust as necessary. Comment out what you
+  # don't need
+  include:
+    # Linux
+    # - env: TARGET=aarch64-unknown-linux-gnu
+    # - env: TARGET=arm-unknown-linux-gnueabi
+    # - env: TARGET=armv7-unknown-linux-gnueabihf
+    # - env: TARGET=i686-unknown-linux-gnu
+    # - env: TARGET=i686-unknown-linux-musl
+    # - env: TARGET=mips-unknown-linux-gnu
+    # - env: TARGET=mips64-unknown-linux-gnuabi64
+    # - env: TARGET=mips64el-unknown-linux-gnuabi64
+    # - env: TARGET=mipsel-unknown-linux-gnu
+    # - env: TARGET=powerpc-unknown-linux-gnu
+    # - env: TARGET=powerpc64-unknown-linux-gnu
+    # - env: TARGET=powerpc64le-unknown-linux-gnu
+    # - env: TARGET=s390x-unknown-linux-gnu DISABLE_TESTS=1
+    # - env: TARGET=x86_64-unknown-linux-gnu
+    - env: TARGET=x86_64-unknown-linux-musl
+
+    # OSX
+    # - env: TARGET=i686-apple-darwin
+    #   os: osx
+    - env: TARGET=x86_64-apple-darwin
+      os: osx
+
+    # *BSD
+    # - env: TARGET=i686-unknown-freebsd DISABLE_TESTS=1
+    # - env: TARGET=x86_64-unknown-freebsd DISABLE_TESTS=1
+    # - env: TARGET=x86_64-unknown-netbsd DISABLE_TESTS=1
+
+    # Windows
+    - env: TARGET=x86_64-pc-windows-gnu
+
+    # Bare metal
+    # These targets don't support std and as such are likely not suitable for
+    # most crates.
+    # - env: TARGET=thumbv6m-none-eabi
+    # - env: TARGET=thumbv7em-none-eabi
+    # - env: TARGET=thumbv7em-none-eabihf
+    # - env: TARGET=thumbv7m-none-eabi
+
+    # Testing other channels
+    # - env: TARGET=x86_64-unknown-linux-gnu
+    #   rust: nightly
+    # - env: TARGET=x86_64-apple-darwin
+    #   os: osx
+    #   rust: nightly
+
+before_install:
+  - set -e
+  - rustup self update
+
+install:
+  - sh ci/install.sh
+  - source ~/.cargo/env || true
+
+script:
+  - bash ci/script.sh
+
+after_script: set +e
+
+before_deploy:
+  - sh ci/before_deploy.sh
+
+deploy:
+  # TODO update `api_key.secure`
+  # - Create a `public_repo` GitHub token. Go to: https://github.com/settings/tokens/new
+  # - Encrypt it: `travis encrypt 0123456789012345678901234567890123456789
+  # - Paste the output down here
+  api_key:
+    secure: gxqmssSK5SEOGkB+u32aOWkMpk2Nsbhbgn5JwLCR0f8uWKqPs6neEzwrW6JvHSMTO8CgwIQ70dhN1dAsVfJd+iNnoEzc3Y19x7ZwxlcRHpIxzV/2f3j+Mdm/D6kHasU1AkeLXG1XwP6qOZKZ8k9YQsgxWaFfqNCh1aTAanCXzJD2b/UbMJVuZydBQEj5kBPHeZ1wfGO3kc4D6EIONe60hJAsIGq+XrkfQnIxju6Xs1foxmTRydvajQhpoW8hGYJJbH9REXqdVoNAT/uQu+Mf6T8/qEpm+7Kcn6/D8xq+Imeco/X8HscVIPVGPprks/Bu9W7PfxR5PxTjIszhyCng9HaLK61ORnPnHTTcKirHYyRuDsJQnjBHDuGdk1TFwKlic77DoJpGmsydB0geUeyOiqBO5UHsjKo75o4z9LTfeMfUOrZ0V4tMOKCSibD1BK8EN5a0slVL43h5qTFN9bqkot88BCf/lATjUMfWCe6noty0n0Y3eqa3PotFfqj/hnTAnC7JmCx8eqgtKU5le6RLWg9ofVLZyGSjUu7IvPMTrewx6SxgupI+ZZAhjKDQR5DxtkZRm0SXTfOYBWMv9A93SwvSfyHI4/xojF0mghzUp2M0zn9NVQ+ysbKi3L7+plVHxVDOzElsYlwSADt0Nk1k3gPTYCozXMjpj2DLd2T+Wuo=
+  file_glob: true
+  file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
+  on:
+    condition: $TRAVIS_RUST_VERSION = stable
+    tags: true
+  provider: releases
+  skip_cleanup: true
+
+cache: cargo
+before_cache:
+  # Travis can't cache files that are not readable by "others"
+  - chmod -R a+r $HOME/.cargo
+
+branches:
+  only:
+    # release tags
+    - /^v\d+\.\d+\.\d+.*$/
+    - master
+
+notifications:
+  email:
+    on_success: never
