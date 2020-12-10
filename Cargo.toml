@@ -1,6 +1,6 @@
 [package]
 name = "coal"
-version = "1.0.0"
+version = "1.0.1"
 description = "A static HTML development tool, built with Rust"
 authors = ["Cameron Manavian <cameron.manavian@gmail.com>"]
 edition = "2018"
