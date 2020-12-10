@@ -28,6 +28,10 @@ pub fn start(source: String, destination: String, version:String, root: String) 
                     &output, 
                     "\"/assets/", 
                     &format!("\"{}/assets/", root)
+                )
+                .replace(
+                    "href=\"/", 
+                    &format!("\"{}/", root)
                 );
                 if page == "404" || page == "index" {
                     fs::create_dir_all(format!("{}", destination))?;
